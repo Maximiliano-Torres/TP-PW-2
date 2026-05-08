@@ -15,7 +15,7 @@ productos = [
 carrito = []
 
 #Lista prodductos
-@app.route('/', methods=['GET'])
+@app.route('/productos', methods=['GET'])
 def lista_productos():
     return jsonify(productos)
 
