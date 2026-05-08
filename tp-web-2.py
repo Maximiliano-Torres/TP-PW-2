@@ -43,9 +43,17 @@ def eliminar_carrito(id):
     global carrito
 
     nuevo_carrito = []
+    encontrado = False
+
     for p in carrito:
         if p['id'] != id:
             nuevo_carrito.append(p)
+
+        else:
+            encontrado = True
+
+    if not encontrado:
+        return jsonify({"Mensaje": "Producto no encontrado"}), 404
 
     carrito = nuevo_carrito
     return jsonify({"Mensaje": "Producto eliminado", "carrito": carrito})
